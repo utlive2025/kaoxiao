@@ -3,113 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>115全中運｜空手道對打賽程</title>
+<title>115全中運｜空手道對打賽程管理</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
 :root{--bg:#f7f6f2;--surface:#fff;--border:#e0ddd6;--border2:#c8c4bc;--text:#1a1915;--muted:#7a776e;--accent:#2a5caa;--accent-light:#e8eef8;--green:#1a6e3c;--green-light:#e6f4ed;--gold:#b8860b;--gold-light:#fdf6e3;--red:#a0230a;--radius:6px}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 header{background:var(--text);color:#f7f6f2;padding:12px 20px;display:flex;align-items:center;gap:12px}
-header h1{font-size:15px;font-weight:700;letter-spacing:.5px}
-.sync-dot{width:8px;height:8px;border-radius:50%;background:#888;margin-left:auto;flex-shrink:0;transition:background .3s}
-.sync-dot.ok{background:#3ada7a}
-.sync-dot.err{background:#e05050}
-.sync-dot.syncing{background:#f0c040;animation:blink .6s infinite}
+header h1{font-size:15px;font-weight:700;letter-spacing:1px}
+.container{padding:20px;max-width:1400px;margin:0 auto}
+.controls{margin-bottom:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+select{padding:8px 12px;border-radius:var(--radius);border:1px solid var(--border2);background:var(--surface);font-family:inherit;font-size:14px;cursor:pointer}
+.loading-status{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#ccc}
+.dot.saving{background:var(--gold);animation:blink 1s infinite}
+.dot.synced{background:var(--green)}
+.dot.err{background:var(--red)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.sync-label{font-size:11px;color:#aaa9a0;margin-left:6px}
-.tabs{display:flex;background:var(--text);padding:0 20px;border-bottom:2px solid #333}
-.tab{padding:9px 18px;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
-.tab.active{color:#f7f6f2;border-bottom-color:#f7f6f2}
-.page{display:none;padding:16px 20px}
-.page.active{display:block}
-.setup-grid{display:grid;grid-template-columns:260px 1fr;gap:16px;align-items:start}
-.panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
-.panel h2{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.5px;margin-bottom:10px;text-transform:uppercase}
-.div-tabs{display:flex;gap:4px;margin-bottom:6px;flex-wrap:wrap}
-.div-tab{padding:4px 10px;border-radius:20px;font-size:12px;border:1px solid var(--border);background:#fafaf8;color:var(--muted);cursor:pointer;transition:all .12s}
-.div-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.player-list{display:flex;flex-direction:column;gap:3px;margin-top:8px;max-height:200px;overflow-y:auto}
-.slots-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.slot-row{display:flex;align-items:center;gap:5px}
-.slot-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);width:20px;text-align:right;flex-shrink:0}
-.slot-box{flex:1;height:34px;border:1px dashed var(--border2);border-radius:4px;display:flex;align-items:center;padding:0 7px;font-size:11px;color:var(--muted);background:#fafaf8;cursor:pointer;transition:all .1s;position:relative;overflow:hidden;white-space:nowrap;gap:5px}
-.slot-box.filled{border-style:solid;border-color:var(--border2);background:var(--surface);color:var(--text)}
-.btn{padding:7px 16px;border-radius:var(--radius);font-size:13px;font-weight:500;cursor:pointer;border:none;transition:all .15s;font-family:'Noto Sans TC',sans-serif}
-.btn-primary{background:var(--accent);color:#fff}
-.class-bar{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
-.cbtn{padding:4px 11px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid var(--border2);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .15s}
-.cbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.courts-layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.court-panel{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.court-hdr{padding:8px 12px;font-size:12px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);background:var(--surface)}
-.bracket-area{padding:8px;overflow-x:auto}
+#bracket-area{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:auto;padding:40px;box-shadow:0 2px 8px rgba(0,0,0,.05);min-height:600px}
+svg{display:block;margin:0 auto}
 </style>
 </head>
 <body>
-<header>
-  <div><h1>115全中運 空手道個人對打賽程</h1><p>2026嘉義・手動更新版</p></div>
-  <div class="sync-dot" id="syncDot"></div><span class="sync-label" id="syncLabel">連線中...</span>
-</header>
-<div class="tabs">
-  <div class="tab active" onclick="showPage('setup')">設定出賽名單</div>
-  <div class="tab" onclick="showPage('bracket')">對戰樹狀圖</div>
-</div>
-
-<div id="page-setup" class="page active">
-  <div class="setup-grid">
-    <div class="panel">
-      <h2>賽事分類</h2>
-      <div id="grpTabs" class="div-tabs"></div><div id="lvlTabs" class="div-tabs"></div>
-      <h2>選手名單</h2>
-      <div id="playerList" class="player-list"></div>
-    </div>
-    <div class="panel">
-      <h2 id="slotTitle">出賽位置</h2>
-      <div id="slotsGrid" class="slots-grid"></div>
-      <div style="margin-top:10px"><button class="btn btn-primary" onclick="goToBracket()">開始比賽 →</button></div>
-    </div>
+<header><h1>115 全中運｜空手道對打賽程管理 (手動模式)</h1></header>
+<div class="container">
+  <div class="controls">
+    <select id="sheet-select"><option value="">載入中...</option></select>
+    <div class="loading-status"><div id="status-dot" class="dot"></div><span id="status-text">同步中...</span></div>
   </div>
-</div>
-
-<div id="page-bracket" class="page">
-  <div class="class-bar" id="classBtns"></div>
-  <div class="courts-layout">
-    <div class="court-panel cp-a"><div class="court-hdr">A 場地</div><div class="bracket-area"><svg id="svgWA"></svg></div></div>
-    <div class="court-panel cp-b"><div class="court-hdr">B 場地</div><div class="bracket-area"><svg id="svgWB"></svg></div></div>
-  </div>
+  <div id="bracket-area"></div>
 </div>
 
 <script>
+// 請確認此處網址為您重新部署後產生的最新網址
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbyL1WUhaBJvQqW1f5dTiFqJ-c8JHPHdPXukUroV4cJMvGona3SxOYnvI7VAkywBVEWs/exec';
 let STATE = { slots:{}, winners:{}, loserW:{}, finals:{} };
-let curBK = '';
+let curBK = ''; 
+let saveTimer = null;
 
-// 核心修改：手動切換勝負邏輯
+async function init(){
+  setStatus('saving', '同步中...');
+  try {
+    const r = await fetch(GAS_URL + '?t=' + Date.now());
+    const data = await r.json();
+    if(data && Object.keys(data).length > 0) {
+      STATE = data;
+    }
+    
+    const categories = Object.keys(STATE.slots || {});
+    const sel = document.getElementById('sheet-select');
+    sel.innerHTML = ''; 
+    
+    if(categories.length === 0) {
+      sel.innerHTML = '<option value="">無資料 (請先設定名單)</option>';
+    } else {
+      categories.forEach(k => {
+        const opt = document.createElement('option');
+        opt.value = k; opt.textContent = k.replace(/_/g, ' ');
+        sel.appendChild(opt);
+      });
+      curBK = categories[0];
+      renderAll();
+    }
+    
+    sel.onchange = e => { curBK = e.target.value; renderAll(); };
+    setStatus('synced', '已同步');
+  } catch(e) {
+    console.error(e);
+    setStatus('err', '連線失敗，請檢查 GAS 部署');
+  }
+}
+
+function setStatus(s, t){
+  const d = document.getElementById('status-dot'), txt = document.getElementById('status-text');
+  d.className = 'dot ' + s;
+  txt.textContent = t;
+}
+
+// 點擊邏輯：點一下勝出，再點同一個人取消
 function clickW4(csk, r, mi, pid) {
-  if (!STATE.winners[csk]) STATE.winners[csk] = [[],[],[],[]].map((_,i)=>new Array(Math.max(1, 8>>i)).fill(null));
+  if (!STATE.winners[csk]) {
+    STATE.winners[csk] = [[],[],[],[]].map((_,i)=>new Array(Math.max(1, 8>>i)).fill(null));
+  }
   const W = STATE.winners[csk];
-  // 點一下勝利，再點同一個人則取消
   W[r][mi] = (W[r][mi] === pid) ? null : pid;
   renderAll();
   scheduleSave();
 }
 
-function renderAll(){
-  // 這裡放置您的繪圖邏輯，確保在 rect 上綁定 onclick="clickW4(...)"
-  console.log("Rendering...");
-}
-
-function showPage(p){
-  document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-}
-
 function scheduleSave(){
-  fetch(GAS_URL, {method:'POST', body:JSON.stringify(STATE), mode:'no-cors'});
+  if(saveTimer) clearTimeout(saveTimer);
+  setStatus('saving', '同步中...');
+  saveTimer = setTimeout(async () => {
+    try {
+      await fetch(GAS_URL, { method:'POST', body: JSON.stringify(STATE), mode:'no-cors' });
+      setStatus('synced', '已同步');
+    } catch(e) { setStatus('err', '儲存失敗'); }
+  }, 1000);
 }
 
-// 初始化
-window.onload = () => { console.log("App ready"); };
-</script>
-</body>
-</html>
+function renderAll(){
+  const area = document.getElementById('bracket-area');
+  area.innerHTML = '';
+  if(!curBK) return;
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('width', '1000');
+  svg.setAttribute('height', '600');
+  drawWinnerSVG(svg, curBK);
+  area.appendChild(svg);
+}
+
+function drawWinnerSVG(svg, csk) {
+  const BW=140, BH=30, HG=60, VG=40;
+  for(let r=0; r<4; r++){
+    const matchCount = Math.pow(2, 3-r);
+    for(let mi=0; mi<matchCount; mi++){
+      const x = 50 + r*(BW+HG);
+      const step = 600 / matchCount;
+      const y = (mi * step) + (step/2) - BH;
+      
+      // 取得上一輪手動結果
+      const pids = [
+        r === 0 ? (STATE.slots[csk] ? STATE.slots[csk][mi*2] : null) : (STATE.winners[csk] ? STATE.winners[csk][r-1][mi*2] : null),
+        r === 0 ? (STATE.slots[csk] ? STATE.slots[csk][mi*2+1] : null) : (STATE.winners[csk] ? STATE.winners[csk][r-1][mi*2+1] : null)
+      ];
+      
+      pids.forEach((pid, pi) => {
+        if(pid === null) return;
+        const cy = y + pi*35;
+        const isW = STATE.winners[csk] && STATE
