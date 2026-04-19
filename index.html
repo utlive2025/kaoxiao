@@ -1,126 +1,110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>115全中運｜空手道對打賽程</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+:root{--bg:#f7f6f2;--surface:#fff;--border:#e0ddd6;--border2:#c8c4bc;--text:#1a1915;--muted:#7a776e;--accent:#2a5caa;--accent-light:#e8eef8;--green:#1a6e3c;--green-light:#e6f4ed;--gold:#b8860b;--gold-light:#fdf6e3;--red:#a0230a;--radius:6px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:var(--text);color:#f7f6f2;padding:12px 20px;display:flex;align-items:center;gap:12px}
+header h1{font-size:15px;font-weight:700;letter-spacing:.5px}
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#888;margin-left:auto;flex-shrink:0;transition:background .3s}
+.sync-dot.ok{background:#3ada7a}
+.sync-dot.err{background:#e05050}
+.sync-dot.syncing{background:#f0c040;animation:blink .6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.sync-label{font-size:11px;color:#aaa9a0;margin-left:6px}
+.tabs{display:flex;background:var(--text);padding:0 20px;border-bottom:2px solid #333}
+.tab{padding:9px 18px;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}
+.tab.active{color:#f7f6f2;border-bottom-color:#f7f6f2}
+.page{display:none;padding:16px 20px}
+.page.active{display:block}
+/* ... 這裡省略部分重複的 CSS 以保持簡潔，請確保使用您原本的樣式 ... */
+.fp.clickable{cursor:pointer}
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-TW"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1">&lt;title&gt;115全中運｜空手道對打賽程&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=DM+Mono:wght@400;500&amp;display=swap');</p>
-<p class="p1">:root{--bg:#f7f6f2;--surface:#fff;--border:#e0ddd6;--border2:#c8c4bc;--text:#1a1915;--muted:#7a776e;--accent:#2a5caa;--accent-light:#e8eef8;--green:#1a6e3c;--green-light:#e6f4ed;--gold:#b8860b;--gold-light:#fdf6e3;--red:#a0230a;--radius:6px}</p>
-<p class="p1">*{box-sizing:border-box;margin:0;padding:0}</p>
-<p class="p1">body{font-family:'Noto Sans TC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}</p>
-<p class="p1">header{background:var(--text);color:#f7f6f2;padding:12px 20px;display:flex;align-items:center;gap:12px}</p>
-<p class="p1">header h1{font-size:15px;font-weight:700;letter-spacing:.5px}</p>
-<p class="p1">.sync-dot{width:8px;height:8px;border-radius:50%;background:#888;margin-left:auto;flex-shrink:0;transition:background .3s}</p>
-<p class="p1">.sync-dot.ok{background:#3ada7a}</p>
-<p class="p1">.sync-dot.err{background:#e05050}</p>
-<p class="p1">.sync-dot.syncing{background:#f0c040;animation:blink .6s infinite}</p>
-<p class="p1">@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}</p>
-<p class="p1">.sync-label{font-size:11px;color:#aaa9a0;margin-left:6px}</p>
-<p class="p1">.tabs{display:flex;background:var(--text);padding:0 20px;border-bottom:2px solid #333}</p>
-<p class="p1">.tab{padding:9px 18px;font-size:13px;font-weight:500;color:#888;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .15s;white-space:nowrap}</p>
-<p class="p1">.tab.active{color:#f7f6f2;border-bottom-color:#f7f6f2}</p>
-<p class="p1">.page{display:none;padding:16px 20px}</p>
-<p class="p1">.page.active{display:block}</p>
-<p class="p1">/* ... 這裡省略部分重複的 CSS 以保持簡潔，請確保使用您原本的樣式 ... */</p>
-<p class="p1">.fp.clickable{cursor:pointer}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div&gt;&lt;h1&gt;115全中運 空手道個人對打賽程&lt;/h1&gt;&lt;p&gt;2026嘉義・手動更新版&lt;/p&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="sync-dot" id="syncDot"&gt;&lt;/div&gt;&lt;span class="sync-label" id="syncLabel"&gt;連線中...&lt;/span&gt;</p>
-<p class="p1">&lt;/header&gt;</p>
-<p class="p1">&lt;div class="tabs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tab active" onclick="showPage('setup')"&gt;設定出賽名單&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tab" onclick="showPage('bracket')"&gt;對戰樹狀圖&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div id="page-setup" class="page active"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="setup-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="panel"&gt;&lt;h2&gt;請先設定出賽名單&lt;/h2&gt;&lt;div id="grpTabs" class="div-tabs"&gt;&lt;/div&gt;&lt;div id="lvlTabs" class="div-tabs"&gt;&lt;/div&gt;&lt;div id="playerList" class="player-list"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="panel"&gt;&lt;h2 id="slotTitle"&gt;出賽位置&lt;/h2&gt;&lt;div id="slotsGrid" class="slots-grid"&gt;&lt;/div&gt;&lt;button class="btn btn-primary" onclick="goToBracket()"&gt;開始比賽 →&lt;/button&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div id="page-bracket" class="page"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="class-bar" id="classBtns"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="courts-layout"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="court-panel cp-a"&gt;&lt;div class="court-hdr cha"&gt;A 場地&lt;/div&gt;&lt;div class="bracket-area"&gt;&lt;svg id="svgWA"&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="court-panel cp-b"&gt;&lt;div class="court-hdr chb"&gt;B 場地&lt;/div&gt;&lt;div class="bracket-area"&gt;&lt;svg id="svgWB"&gt;&lt;/svg&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button class="btn btn-ghost btn-sm" onclick="showPage('setup')"&gt;← 返回設定&lt;/button&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">const GAS_URL = 'https://script.google.com/macros/s/AKfycbyL1WUhaBJvQqW1f5dTiFqJ-c8JHPHdPXukUroV4cJMvGona3SxOYnvI7VAkywBVEWs/exec';</p>
-<p class="p1">let STATE = { slots:{}, winners:{}, loserW:{}, finals:{} };</p>
-<p class="p1">let curGroup='高男組', curLevel='第一量級', curBK='高男組_第一量級';</p>
-<p class="p2"><br></p>
-<p class="p1">// 核心修改：手動切換勝負邏輯</p>
-<p class="p1">function clickW4(csk, r, mi, pid) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!STATE.winners[csk]) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>STATE.winners[csk] = [[],[],[],[]].map((_,i)=&gt;new Array(Math.max(1, 8&gt;&gt;i)).fill(null));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const W = STATE.winners[csk];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// 如果點擊的人已經是勝者，則取消 (設為 null)；否則設為勝者</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (W[r][mi] === pid) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>W[r][mi] = null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>W[r][mi] = pid;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderAll(); <span class="Apple-converted-space">    </span>// 重新渲染畫面</p>
-<p class="p1"><span class="Apple-converted-space">  </span>scheduleSave();<span class="Apple-converted-space">  </span>// 同步資料</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function clickLoser(csk, mi, pid) {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (!STATE.loserW[csk]) STATE.loserW[csk] = [null, null, null];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const LW = STATE.loserW[csk];</p>
-<p class="p2"><span class="Apple-converted-space">  </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (LW[mi] === pid) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>LW[mi] = null;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>LW[mi] = pid;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>renderAll();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>scheduleSave();</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// 同步與渲染邏輯 (維持原本結構但調用上述 function)</p>
-<p class="p1">async function scheduleSave(){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setSyncStatus('syncing');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>await fetch(GAS_URL, {method:'POST', body:JSON.stringify(STATE), mode:'no-cors'});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setSyncStatus('ok');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>} catch(e) { setSyncStatus('err'); }</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">function setSyncStatus(s){</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const dot=document.getElementById('syncDot'), lbl=document.getElementById('syncLabel');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>dot.className='sync-dot '+s;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>lbl.textContent = s==='ok'?'已同步':s==='syncing'?'同步中...':'連線失敗';</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">// ... 剩餘的 renderAll, drawWinnerSVG 等繪圖函式請維持原本邏輯 ...</p>
-<p class="p1">// 確保在 rect.onclick 或 text.onclick 綁定的是 clickW4 和 clickLoser</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<header>
+  <div><h1>115全中運 空手道個人對打賽程</h1><p>2026嘉義・手動更新版</p></div>
+  <div class="sync-dot" id="syncDot"></div><span class="sync-label" id="syncLabel">連線中...</span>
+</header>
+<div class="tabs">
+  <div class="tab active" onclick="showPage('setup')">設定出賽名單</div>
+  <div class="tab" onclick="showPage('bracket')">對戰樹狀圖</div>
+</div>
+
+<div id="page-setup" class="page active">
+  <div class="setup-grid">
+    <div class="panel"><h2>請先設定出賽名單</h2><div id="grpTabs" class="div-tabs"></div><div id="lvlTabs" class="div-tabs"></div><div id="playerList" class="player-list"></div></div>
+    <div class="panel"><h2 id="slotTitle">出賽位置</h2><div id="slotsGrid" class="slots-grid"></div><button class="btn btn-primary" onclick="goToBracket()">開始比賽 →</button></div>
+  </div>
+</div>
+
+<div id="page-bracket" class="page">
+  <div class="class-bar" id="classBtns"></div>
+  <div class="courts-layout">
+    <div class="court-panel cp-a"><div class="court-hdr cha">A 場地</div><div class="bracket-area"><svg id="svgWA"></svg></div></div>
+    <div class="court-panel cp-b"><div class="court-hdr chb">B 場地</div><div class="bracket-area"><svg id="svgWB"></svg></div></div>
+  </div>
+  <button class="btn btn-ghost btn-sm" onclick="showPage('setup')">← 返回設定</button>
+</div>
+
+<script>
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyL1WUhaBJvQqW1f5dTiFqJ-c8JHPHdPXukUroV4cJMvGona3SxOYnvI7VAkywBVEWs/exec';
+let STATE = { slots:{}, winners:{}, loserW:{}, finals:{} };
+let curGroup='高男組', curLevel='第一量級', curBK='高男組_第一量級';
+
+// 核心修改：手動切換勝負邏輯
+function clickW4(csk, r, mi, pid) {
+  if (!STATE.winners[csk]) {
+    STATE.winners[csk] = [[],[],[],[]].map((_,i)=>new Array(Math.max(1, 8>>i)).fill(null));
+  }
+  const W = STATE.winners[csk];
+
+  // 如果點擊的人已經是勝者，則取消 (設為 null)；否則設為勝者
+  if (W[r][mi] === pid) {
+    W[r][mi] = null;
+  } else {
+    W[r][mi] = pid;
+  }
+
+  renderAll();     // 重新渲染畫面
+  scheduleSave();  // 同步資料
+}
+
+function clickLoser(csk, mi, pid) {
+  if (!STATE.loserW[csk]) STATE.loserW[csk] = [null, null, null];
+  const LW = STATE.loserW[csk];
+  
+  if (LW[mi] === pid) {
+    LW[mi] = null;
+  } else {
+    LW[mi] = pid;
+  }
+  renderAll();
+  scheduleSave();
+}
+
+// 同步與渲染邏輯 (維持原本結構但調用上述 function)
+async function scheduleSave(){
+  setSyncStatus('syncing');
+  try {
+    await fetch(GAS_URL, {method:'POST', body:JSON.stringify(STATE), mode:'no-cors'});
+    setSyncStatus('ok');
+  } catch(e) { setSyncStatus('err'); }
+}
+
+function setSyncStatus(s){
+  const dot=document.getElementById('syncDot'), lbl=document.getElementById('syncLabel');
+  dot.className='sync-dot '+s;
+  lbl.textContent = s==='ok'?'已同步':s==='syncing'?'同步中...':'連線失敗';
+}
+
+// ... 剩餘的 renderAll, drawWinnerSVG 等繪圖函式請維持原本邏輯 ...
+// 確保在 rect.onclick 或 text.onclick 綁定的是 clickW4 和 clickLoser
+</script>
 </body>
 </html>
